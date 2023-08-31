@@ -1,0 +1,26 @@
+-- CreateTable
+CREATE TABLE "Plan" (
+    "title" TEXT NOT NULL PRIMARY KEY,
+    "email" TEXT NOT NULL,
+    "days" INTEGER NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "DayPlan" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "planTitle" TEXT NOT NULL,
+    "day" INTEGER NOT NULL,
+    CONSTRAINT "DayPlan_planTitle_fkey" FOREIGN KEY ("planTitle") REFERENCES "Plan" ("title") ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "Moves" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "title" TEXT NOT NULL,
+    "set" INTEGER NOT NULL,
+    "rep" INTEGER NOT NULL,
+    "dayPlanId" INTEGER NOT NULL,
+    CONSTRAINT "Moves_dayPlanId_fkey" FOREIGN KEY ("dayPlanId") REFERENCES "DayPlan" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);

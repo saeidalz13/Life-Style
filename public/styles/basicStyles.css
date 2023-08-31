@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300;10..48,400;10..48,600&display=swap');
+
+/* 
+column-gap
+column-gap
+line-height
+letter-spacing
+border: width style color
+text-shadow
+
+
+inline elements:
+span, img, 
+block elements:
+p h1-h8 div, ul, li
+
+accessing elements
+
+p
+p.className
+.className
+p#id
+
+<p class="container someOtherName">
+p.container.someOtherName
+
+
+parent child1 child2 etc.
+div p
+
+parent .classOfChild
+div .error
+
+This will look for all the links that have someText in them
+a[href*="someText"] {
+}
+
+This will look for all the links ends with .com
+a[href$=".com"] {
+}
+
+Children can inherit the attributes from the parent
+div {
+    color: red;
+    border: 1px dotted red;
+    margin: 40px;
+    font-weight: 600
+}
+
+p {
+    margin: inherit
+    border: inherit
+}
+*/
+
+* {
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+body {
+    margin: 0px auto 10px;
+    padding: 0 20px;
+    background-color: rgb(232, 232, 223);
+}
+
+footer {
+    color: #777;
+    text-align: center;
+    margin: 200px auto 20px;
+}
+
+select {
+    border-radius: 6px;
+}
+
+
+input {
+    border-radius: 5px;
+    border: 1px solid rgb(197, 197, 197);
+    margin: 7px auto;
+    padding: 4px 12px;
+    width: 100%;
+}
+
+form legend {
+    text-align: center;
+    margin-bottom: 15px; 
+    color: #213b4f; 
+}
+
+
+div.container.mainGrid {
+    margin-top: 100px;
+    text-align: center;
+    width: 1100px;
+}
+
+div.container.finance {
+    margin-top: 100px;
+    text-align: center;
+    width: 1000px;
+}
+
+div.container.mainGrid div.row div.col button, div.container.finance div.row div.col button {
+    color: gold;
+    font-size: 30px;
+    border: 1px solid goldenrod;
+    border-radius: 20px;
+    padding: 50px 100px;
+    background-color: #213b4f;
+}
+
+div.container.mainGrid div.row div.col button:hover, 
+div.container.finance div.row div.col button:hover {
+    background-color: rgb(183, 183, 183);
+    color: #213b4f;
+    border-color: #213b4f;
+    box-shadow: 0 12px 16px 0 goldenrod, 0 10px 30px 0 goldenrod;
+} 
+
+div.alert.alert-success.success-submit,
+div.alert.alert-danger.error-submit {
+    width: 500px; text-align: center; margin: 5px auto; display: none;
+}
+
+table.table-hover.table-bordered.table_show_budgets {
+    box-shadow: 1px 2px 20px rgb(169, 169, 169);
+}
+
+.navbar {
+    /* width: 100%; */
+    padding: 20px 0px;
+    /* border-radius: 20px; */
+}
+
+.nav-link {
+    color: gold
+}
+
+.nav-link:hover {
+    color: goldenrod;
+}
+
+.container .row {
+    margin: 20px auto;
+}
+
+.container.row.btn {
+    color: goldenrod;
+    background-color: midnightblue;
+}
+
+.username_error, .email_error, .password_error, .confirm_password_error {
+    color: hotpink;
+    font-weight: 600;
+    font-size: 13px;
+    margin: 3px 0 5px;
+}
+
+.signup_login_headers {
+    text-align: center; 
+    margin-bottom: 25px;
+    font-size: 25px;
+    text-decoration: underline; 
+    text-shadow: 1px 1px goldenrod;
+    color: midnightblue;
+}
+
+.submit_success_savings, .submit_success_expenses {
+    text-align: center; 
+    margin: 10px auto 0px; 
+    background-color: rgb(127, 255, 170); 
+    max-width: 300px; 
+    padding: 7px 0;
+    display: none;
+    border-radius: 5px;
+}
+
+.submit_error, .submit_error_savings{
+    text-align: center; 
+    margin-top: 20px; 
+    color: red;
+}
+
+.list-group-item {
+    padding: 15px 50px;
+}
+
+.new_expense_number {
+    width: 100px;
+}
+
+.new_expense_input_container {
+    display: flex;
+    gap: 10px; 
+}
+
+#select_budget_to_expense, #select_budget_to_details {
+    text-align: center;
+    margin: 25px auto;
+    padding: 20px;
+    display: none;
+    width: 500px;
+}
+
+#mainPageHeader {
+    margin-top: 80px;
+    text-align: center;
+}
+
+#form_signup, #form_login {
+    width: 320px;
+    margin: 90px auto 40px;
+    padding: 30px 20px 20px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    box-shadow: 1px 2px 20px rgb(169, 169, 169);
+}
+
+#form_create_budget {
+    width: 500px;
+    margin: 25px 10px 20px 100px;
+    padding: 25px 20px 10px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    box-shadow: 1px 2px 20px rgb(169, 169, 169);
+    transition: width 3s, height 4s;
+}
+
+#new_expense_form_expenses {
+    width: 600px;
+    margin-left: 70px;
+    padding: 20px 20px 10px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    border: solid 1px #8b0038;
+    box-shadow: 1px 2px 20px rgb(169, 169, 169);
+}
+
+#new_expense_form_savings {
+    width: 600px;
+    margin: 15px 0 15px 80px;
+    padding: 20px 20px 0;
+    border: solid 1px #008b10;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    box-shadow: 1px 2px 20px rgb(169, 169, 169);
+}
+
+#all_expenses {
+    display: none;
+}
+
+#signup_error, #login_error {
+    position: absolute;
+    top: 5px;
+    left: 500px;
+    margin-top: 5px;
+    display: none;
+    width: 500px;
+    text-align: center;
+}
+
+#create_budget_error, #create_budget_success, #delete_budget_error, #delete_budget_success {
+    display: none;
+    width: 400px;
+    text-align: left;
+    margin-left: 150px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* #show_budgets_container {
+    text-align: left;
+    margin: 20px 50px 0 50px;
+} */
+
+#delete_budget_showBudgets {
+    padding: 10px 50px;
+}
+
