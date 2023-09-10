@@ -1,4 +1,3 @@
-"use strict";
 const inputFields = document.querySelectorAll("input");
 if (inputFields !== null) {
     inputFields.forEach((field) => {
@@ -91,4 +90,5 @@ if (form_signup !== null) {
         }
     });
 }
+export {};
 //# sourceMappingURL=signupFrontEnd.js.map

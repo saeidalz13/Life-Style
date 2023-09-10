@@ -1,4 +1,3 @@
-"use strict";
 const inputFieldsLogin = document.querySelectorAll("input");
 if (inputFieldsLogin !== null) {
     inputFieldsLogin.forEach((field) => {
@@ -50,9 +49,11 @@ if (form_login) {
                     if (data.errors) {
                         if (data.errors.email) {
                             setLoginError("block", data.errors.email);
+                            return;
                         }
                         else if (data.errors.password) {
                             setLoginError("block", data.errors.password);
+                            return;
                         }
                     }
                 }
@@ -69,4 +70,5 @@ if (form_login) {
 else {
     console.log("Form element could not be fetched!");
 }
+export {};
 //# sourceMappingURL=loginFrontEnd.js.map

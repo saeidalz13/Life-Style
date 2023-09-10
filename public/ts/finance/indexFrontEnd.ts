@@ -1,11 +1,5 @@
-const setDisplayElement = (
-  elements: Array<HTMLButtonElement>,
-  value: string
-): void => {
-  elements.forEach((element) => {
-    element.style["display"] = value;
-  });
-};
+import { setDisplayElement } from "../utils/functions.js";
+import { fadeGray } from "../utils/constants.js";
 
 const submit_expenses_button: HTMLButtonElement | null = document.querySelector(
   "#submit_expenses_button"
@@ -42,7 +36,7 @@ if (submit_expenses_button && show_budgets_button && new_budget_button) {
   submit_expenses_button.addEventListener("click", () => {
     if (select_budget_to_expense && _body) {
       select_budget_to_expense.style.display = "block";
-      _body.style.backgroundColor = "rgb(190, 190, 190)";
+      _body.style.backgroundColor = fadeGray;
       setDisplayElement(
         [submit_expenses_button, show_budgets_button, new_budget_button],
         "none"

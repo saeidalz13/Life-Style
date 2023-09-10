@@ -1,4 +1,3 @@
-"use strict";
 const delete_budget_showBudgets = document.querySelector("#delete_budget_showBudgets");
 const delete_budget_error = document.querySelector("#delete_budget_error");
 const delete_budget_success = document.querySelector("#delete_budget_success");
@@ -28,4 +27,5 @@ if (delete_budget_showBudgets) {
         }
     });
 }
+export {};
 //# sourceMappingURL=showBudgetsFrontEnd.js.map

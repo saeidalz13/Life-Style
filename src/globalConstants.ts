@@ -1,9 +1,11 @@
 import path from "path";
 import dotenv from "dotenv";
-
+import jwt from "jsonwebtoken";
 
 dotenv.config();
 export const secretKey = process.env.secretKey;
+
+
 
 export const MongoErrorCodes = {
   duplicateCode: 11000,
@@ -49,3 +51,6 @@ export type decodedTokenStringified = {
     iat: number;
     exp: number;
 }
+
+export type TDecodedToken = string | jwt.JwtPayload | undefined | decodedTokenStringified
+export type TDecodedError = jwt.VerifyErrors | null

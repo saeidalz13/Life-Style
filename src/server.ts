@@ -1,14 +1,16 @@
 import express, { Application } from "express";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
+import cors from "cors";
 import path from "path";
 import dotenv from "dotenv";
-import mongoose from "mongoose";
+import mongoose, {ConnectOptions} from "mongoose";
 import cookieParser from "cookie-parser";
 import { HTTPCodes, bootstrapPath } from "./globalConstants.js";
 import homeRoutes from "./routes/home/homeRoutes.js";
 import authRoutes from "./routes/auth/authRoutes.js";
 import financeRoutes from "./routes/finance/financeRoutes.js";
+import fitnessRoutes from "./routes/fitness/fitnessRoutes.js";
 import { fileURLToPath } from "url";
 import { checkUserOrGuest } from "./middlewares/auth/authMiddlewares.js";
 // import { typeDefs } from "./models/fitness.js";
@@ -43,9 +45,13 @@ try {
   // console.log("Apollo server ready at port 3000...")
 
   //... MongoDb
-  const responseMongo = await mongoose.connect(dbURI);
+  await mongoose.connect(dbURI, {  
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  } as ConnectOptions);
   console.log(`Successfully connected to => ${database_name}...`);
   app.listen(3000);
+  
 } catch (error) {
   console.log(error);
 }
@@ -57,6 +63,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 // Nessecary middlewares
+app.use(cors())
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
@@ -74,7 +81,7 @@ app.get("*", checkUserOrGuest);
 app.use(homeRoutes);
 app.use(authRoutes);
 app.use(financeRoutes);
-
+app.use(fitnessRoutes);
 // app.use((req: Request, res: Response) => {
 //   res.status(HTTPCodes.NotFound).render("404", { title: "Not Found" });
 // });

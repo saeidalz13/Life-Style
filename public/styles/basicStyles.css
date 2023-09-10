@@ -52,6 +52,9 @@ p {
     border: inherit
 }
 */
+:root {
+    --inputBorderColor: rgb(197, 197, 197)
+}
 
 * {
     font-family: 'Bricolage Grotesque', sans-serif;
@@ -76,7 +79,7 @@ select {
 
 input {
     border-radius: 5px;
-    border: 1px solid rgb(197, 197, 197);
+    border: 1px solid var(--inputBorderColor);
     margin: 7px auto;
     padding: 4px 12px;
     width: 100%;
@@ -90,13 +93,13 @@ form legend {
 
 
 div.container.mainGrid {
-    margin-top: 100px;
+    margin-top: 50px;
     text-align: center;
     width: 1100px;
 }
 
 div.container.finance {
-    margin-top: 100px;
+    margin-top: 80px;
     text-align: center;
     width: 1000px;
 }
@@ -195,6 +198,17 @@ table.table-hover.table-bordered.table_show_budgets {
     gap: 10px; 
 }
 
+
+.btn.btn-info.fitness-idx-btns {
+    padding: 20px 100px;
+    font-weight: 500;
+    font-size: xx-large;
+}
+
+.design_plan_input {
+    margin: 0 40px;
+}
+
 #select_budget_to_expense, #select_budget_to_details {
     text-align: center;
     margin: 25px auto;
@@ -203,18 +217,39 @@ table.table-hover.table-bordered.table_show_budgets {
     width: 500px;
 }
 
+#show_plan_div{
+    text-align: center;
+    margin: 25px auto;
+    padding: 20px;
+    width: 500px;
+}
+
 #mainPageHeader {
-    margin-top: 80px;
+    margin-top: 60px;
     text-align: center;
 }
 
-#form_signup, #form_login {
+#form_signup, #form_login, #create_fitplan_form {
     width: 320px;
     margin: 90px auto 40px;
     padding: 30px 20px 20px;
     background-color: whitesmoke;
     border-radius: 15px;
     box-shadow: 1px 2px 20px rgb(169, 169, 169);
+}
+
+#design_plan_form  {
+    width: 700px;
+    margin: 50px auto 20px;
+    padding: 10px 10px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    box-shadow: 1px 2px 20px rgb(169, 169, 169);
+    display: none;
+}
+
+#design_plan_form input {
+    margin: 0 5px;
 }
 
 #form_create_budget {
@@ -279,3 +314,25 @@ table.table-hover.table-bordered.table_show_budgets {
     padding: 10px 50px;
 }
 
+#fitness_index_container {
+    margin: 40px 200px;
+}
+
+#finance_main_button {
+    background-image: url("../images/financeMainButtonImage.jpg");
+    background-size: 700px 500px;
+    background-repeat: no-repeat;
+    padding: 220px 120px;
+}
+
+#fitness_main_button {
+    background-image: url("../images/fitnessMainButtonImage.jpeg");
+    background-size: 700px 500px;
+    background-repeat: no-repeat;
+    padding: 220px 120px;
+}
+
+/* .form-inline input{
+    display: inline-block;
+    margin-right: 10px;
+} */

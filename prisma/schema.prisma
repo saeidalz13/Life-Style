@@ -8,8 +8,9 @@ datasource db {
 }
 
 model plan {
-  title     String    @id
-  email     String
+  id        String    @id @default(uuid())
+  title     String
+  userID    String
   days      Int
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -17,18 +18,20 @@ model plan {
 }
 
 model dayPlan {
-  id        Int     @id @default(autoincrement())
-  plan      plan    @relation(fields: [planTitle], references: [title], onDelete: Cascade) // This is not a column
-  planTitle String
-  day       Int
-  Moves     moves[]
+  id     String     @id @default(uuid())
+  plan   plan    @relation(fields: [planID], references: [id], onDelete: Cascade) // This is not a column
+  planID String
+  day    Int
+  Moves  moves[]
 }
 
 model moves {
-  id        Int     @id @default(autoincrement())
+  id        String     @id @default(uuid())
   title     String
   set       Int
   rep       Int
   dayplan   dayPlan @relation(fields: [dayPlanId], references: [id], onDelete: Cascade)
-  dayPlanId Int
+  dayPlanId String
 }
+
+// for blobs --> Bytes

@@ -20,7 +20,7 @@ const createTokenJWT = (userID: string): stringOrVoid => {
   return;
 };
 
-export const get_login = (req: Request, res: Response) => {
+export const get_login = (_: Request, res: Response) => {
   res.render("auth/login", { title: "Login" });
 };
 
@@ -33,10 +33,11 @@ export const post_login = async (req: Request, res: Response) => {
       const token = createTokenJWT(user._id);
       res.cookie("jwt", token, { httpOnly: true, maxAge: maxAgeCookies });
 
-      res.status(HTTPCodes.Accepted).json({ user });
+      return res.status(HTTPCodes.Accepted).json({ user });
+
     } catch (error) {
       const errors = { email: loginMsgs.invEmail, password: loginMsgs.invPass };
-      res.status(HTTPCodes.BadRequest).json({ errors });
+      return res.status(HTTPCodes.BadRequest).json({ errors });
     }
   }
 };

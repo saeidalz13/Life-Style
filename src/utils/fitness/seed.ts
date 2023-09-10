@@ -1,13 +1,13 @@
-import { db } from "./db.server.js";
-
-export type TPlan = {
+export type TPlanCreate = {
   // Other elements in the schema.prisma are created by prisma
 	title: string;
-  email: string;
+  userID: string;
   days: number;
 };
 
-export type TDayPlan = {
+export type TDayPlanCreate = {
+  id: string
+  planID: string;
   day: number;
 };
 

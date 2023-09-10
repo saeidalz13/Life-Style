@@ -3,8 +3,8 @@ import mongoose from "mongoose";
 
 export interface IBudgetDocument extends mongoose.Document {
   author: mongoose.Schema.Types.ObjectId,
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
   income: number;
   savings: number;
   capital: number;
@@ -26,12 +26,12 @@ const budgetSchema = new mongoose.Schema<IBudgetDocument, IBudgetModel>(
     },
 
     startDate: {
-      type: Date,
+      type: String,
       required: true,
     },
 
     endDate: {
-      type: Date,
+      type: String,
       required: true,
     },
 
@@ -74,7 +74,7 @@ const budgetSchema = new mongoose.Schema<IBudgetDocument, IBudgetModel>(
 );
 
 budgetSchema.pre("save", function (next) {
-  this.budgetID = `${this.startDate.toDateString()}_${this.endDate.toDateString()}`;
+  this.budgetID = `${this.startDate}_${this.endDate}`;
   this.capitalBalance = this.capital;
   this.entertainmentBalance = this.entertainment;
   this.eatoutBalance = this.eatout;
@@ -96,7 +96,8 @@ budgetSchema.pre("save", function (next) {
 
 budgetSchema.post("save", function () {
   console.log(`Budget saved - ID:${this.budgetID}`);
-  // console.log(this)
+  console.log(this)
+
 });
 
 

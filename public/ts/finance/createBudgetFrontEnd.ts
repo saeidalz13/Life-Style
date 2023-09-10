@@ -1,23 +1,4 @@
-const check_sum_budget = (
-  sum_budget: number,
-  income: number,
-  element: HTMLDivElement
-): boolean => {
-  const difference = sum_budget - income;
-  if (difference > 0) {
-    element.style.display = "block";
-    element.textContent = `Your budget is more than your income! (Deficit: $${difference})`;
-  } else if (difference < 0) {
-    element.style.display = "block";
-    element.textContent = `Your income is more than your budget! (Surplus: $${difference})`;
-  } else {
-    return true;
-  }
-  setTimeout(() => {
-    element.style.display = "none";
-  }, 5000);
-  return false;
-};
+import { check_sum_budget } from "../utils/functions.js";
 
 const inputFieldsCreateBudget = document.querySelectorAll("input");
 

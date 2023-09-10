@@ -56,7 +56,7 @@ export const get_finance = (req: Request, res: Response): void => {
           const userID = decodedToken["userID"];
           try {
             const budgets = await Budget.find({ author: userID });
-            
+
             res.render("finance/index", { title: "Finance", budgets: budgets });
           } catch (error) {
             console.log(error);
@@ -126,7 +126,7 @@ export const get_show_budgets = async (req: Request, res: Response) => {
   if (_id) {
     const budget = await Budget.findById(_id);
     if (budget) {
-      console.log(budget);
+      // console.log(budget);
       try {
         res.status(HTTPCodes.Accepted).render("finance/showBudgets", {
           title: "Submit Expenses",
@@ -157,7 +157,6 @@ export const delete_show_budgets = async (req: Request, res: Response) => {
 
       const success = { msg: "Budget Was Deleted Successfully!" };
       return res.status(HTTPCodes.OK).json({ success });
-
     } catch (error) {
       console.log(error);
       const errors = { msg: "Something went wrong!" };
@@ -165,7 +164,6 @@ export const delete_show_budgets = async (req: Request, res: Response) => {
     }
   }
 };
-
 
 // if (token && secretKey) {
 //   jwt.verify(

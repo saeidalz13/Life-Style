@@ -63,8 +63,10 @@ if (form_login) {
           if (data.errors) {
             if (data.errors.email as string) {
               setLoginError("block", data.errors.email);
+              return
             } else if (data.errors.password as string) {
               setLoginError("block", data.errors.password);
+              return
             } 
           }
 

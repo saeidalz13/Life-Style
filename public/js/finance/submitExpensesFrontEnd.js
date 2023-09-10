@@ -1,4 +1,3 @@
-"use strict";
 const new_expense_form_expenses = document.querySelector("#new_expense_form_expenses");
 const submit_expenses = document.querySelector("#submit_expenses");
 const capital_balance_table = document.querySelector("#capital_balance_table");
@@ -86,4 +85,5 @@ if (new_expense_form_expenses && budget_id && submit_expenses) {
         }
     });
 }
+export {};
 //# sourceMappingURL=submitExpensesFrontEnd.js.map
